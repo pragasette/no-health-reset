@@ -1,3 +1,19 @@
+2017-12-18 0.2.0
+
+* Prevent health reset on level up, accounting on whether it was chosen as the stat to increment;
+* rename to "No Health Reset.esp" (internal refactoring: prefixes changed from "P7FixHealth" to "_p7NHR_");
+* TODO: add MCM.
+
+2017-12-13
+
+* TODO: set health back also after leveling up, see:
+- https://www.creationkit.com/index.php?title=OnStoryIncreaseLevel_-_Quest
+- https://www.creationkit.com/index.php?title=UI_Script#Valid_Menu_Names (LevelUp Menu)
+
+2017-11-23
+
+* Tested, sleeping and waiting work as expected
+
 2017-11-16 0.1.0
 
 * set health value after sleeping according to HealRate;
