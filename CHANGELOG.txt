@@ -1,0 +1,27 @@
+2017-12-18 0.2.0
+
+* Prevent health reset on level up, accounting on whether it was chosen as the stat to increment;
+* rename to "No Health Reset.esp" (internal refactoring: prefixes changed from "P7FixHealth" to "_p7NHR_");
+* TODO: add MCM.
+
+2017-12-13
+
+* TODO: set health back also after leveling up, see:
+- https://www.creationkit.com/index.php?title=OnStoryIncreaseLevel_-_Quest
+- https://www.creationkit.com/index.php?title=UI_Script#Valid_Menu_Names (LevelUp Menu)
+
+2017-11-23
+
+* Tested, sleeping and waiting work as expected
+
+2017-11-16 0.1.0
+
+* set health value after sleeping according to HealRate;
+* NOTE: value is calculated as: healthBeforeSleeping + hoursSlept * 60 * 60 * HealRate * HealRateMult / 100 / 10, it is not clear why it is necessary to divide by 10 to get the desired value;
+* NOTE: HealRateMult is undocumented in the CK;
+* NOTE: health is set to an unexpected value after waiting:
+- it went from 10.0 to about 20.0 after 8 hours waiting with HealRate set to usual 0.000827 and HealRateMult somewhere in 30.0, 70.0 or 100.0 (not sure which one was applied because of hunger or thirst effects);
+- sometimes you could see it getting damaged after a few seconds;
+* TODO: check
+- waiting works correctly without this mod;
+- OnSleepStart and OnSleepStop code shouldn't be executed when waiting.
