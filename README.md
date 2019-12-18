@@ -33,6 +33,14 @@ the corresponding SKSE plugin was not converted, or a later release, in which
 
 - Use your mod manager of choice, [Mod Organizer 2] is recommended.
 
+## Features
+
+- After sleep, health is reverted to its previous state; any regeneration rate
+  _HealRate_ is accounted for the hours spent sleeping.
+
+- After level up, health is reverted to its previous state; additionally, if
+  it was chosen as the attribute to increment, such difference is added back.
+
 ## Known Issues
 
 - Health can be reduced to lower than the initial value, possibly causing

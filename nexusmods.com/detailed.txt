@@ -23,6 +23,12 @@ Examples include, but are not limited to:
 [list]
 [*] Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.[/list]
 
+[b]Features[/b]
+
+[list]
+[*] After sleep, health is reverted to its previous state; any regeneration rate [i]HealRate[/i] is accounted for the hours spent sleeping.
+[*] After level up, health is reverted to its previous state; additionally, if it was chosen as the attribute to increment, such difference is added back.[/list]
+
 [b]Known Issues[/b]
 
 [list]
