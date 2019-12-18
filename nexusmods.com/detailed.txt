@@ -1,0 +1,30 @@
+[center][url=https://www.nexusmods.com/skyrimspecialedition/mods/31076]Skyrim Special Edition[/url]﻿ | [url=https://github.com/pragasette/no-health-reset]GitHub﻿[/url]﻿[/center]
+
+This is intended to work with any mod which reduces or zeroes health regeneration, such as [url=https://www.nexusmods.com/skyrim/mods/9972]No Health Regen[/url] or [url=https://www.nexusmods.com/skyrim/mods/29425]Realistic Health Regeneration[/url].
+
+It can also be used to emulate a similar feature present in [url=https://www.nexusmods.com/skyrim/mods/19281]Requiem[/url] [url=https://www.reddit.com/r/skyrimrequiem/comments/axou15/requiem_news_requiem_300_consign_to_oblivion_is/ehxmwai]until version 2.0.2[/url], for instance if using a port to Special Edition, for which the corresponding SKSE plugin was not converted, or a later release, in which [url=https://www.reddit.com/r/skyrimrequiem/comments/axou15/requiem_news_requiem_300_consign_to_oblivion_is/ehxmwai]the feature was removed[/url].
+
+[b]Requirements[/b]
+
+[list]
+[*] [url=https://skse.silverlock.org/]SKSE[/url].
+[*] A mod or tweak to decrease health regeneration, since vanilla rate wouldn't allow to appreciate the effects of this mod.
+Examples include, but are not limited to:
+[list]
+[*] [url=https://www.nexusmods.com/skyrim/mods/9972]No Health Regen[/url];
+[*] [url=https://www.nexusmods.com/skyrim/mods/29425]Realistic Health Regeneration[/url];
+[*] [url=https://www.nexusmods.com/skyrim/mods/19281]Requiem[/url];
+[*] [url=https://www.nexusmods.com/skyrim/mods/33395]SkyTweak[/url];
+[*] using [url=https://en.uesp.net/wiki/Skyrim:Console#Targeted_Commands]modAV in console[/url] to reduce [i]HealRate[/i];
+[*] directly modifying [i]Health Regen[/i] in the [url=https://www.creationkit.com/index.php?title=Race]Race[/url] record.[/list][/list]
+
+[b]Installation[/b]
+
+[list]
+[*] Copy the ESP file and Scripts folder to Skyrim Data folder, using [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.[/list]
+
+[b]Known Issues[/b]
+
+[list]
+[*] Health can be reduced to lower than the initial value, possibly causing death, when the resulting regeneration rate is below zero: for example this is the case when combining the effect of a mod above with the penalty for high exposure given by [url=https://www.nexusmods.com/skyrim/mods/11163]Frostfall[/url].
+Note that this is not consistent with how the game handles a negative value of regeneration, since it wouldn't cause additional health damage; nonetheless I left this side effect as an incentive for players to restore their condition before going to sleep.[/list]
