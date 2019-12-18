@@ -21,7 +21,7 @@ Examples include, but are not limited to:
 [b]Installation[/b]
 
 [list]
-[*] Copy the ESP file and Scripts folder to Skyrim Data folder, using [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.[/list]
+[*] Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.[/list]
 
 [b]Known Issues[/b]
 

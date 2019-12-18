@@ -11,7 +11,6 @@ version 2.0.2][#1], for instance if using a port to Special Edition, for which
 the corresponding SKSE plugin was not converted, or a later release, in which
 [the feature was removed][#1].
 
-
 ## Requirements
 
 - [The Elder Scrolls V: Skyrim][Skyrim].
@@ -30,12 +29,9 @@ the corresponding SKSE plugin was not converted, or a later release, in which
   - using [modAV in console][Targeted Commands] to reduce _HealRate_;
   - directly modifying _Health Regen_ in the [Race] record.
 
-
 ## Installation
 
-- Copy the ESP file and Scripts folder to Skyrim's Data folder, using [Mod
-  Organizer 2] is recommended.
-
+- Use your mod manager of choice, [Mod Organizer 2] is recommended.
 
 ## Known Issues
 
