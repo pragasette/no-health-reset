@@ -39,7 +39,7 @@ the corresponding SKSE plugin was not converted, or a later release, in which
   _HealRate_ is accounted for the hours spent sleeping.
 
 - After level up, health is reverted to its previous state; additionally, if
-  it was chosen as the attribute to increment, such difference is added back.
+  it was chosen as the attribute to increment, such a difference is added back.
 
 ## Known Issues
 
