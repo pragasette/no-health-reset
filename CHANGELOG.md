@@ -18,8 +18,7 @@ The format is based on [Keep a Changelog], and this project adheres to
 
 ### Added
 
-- Prevent health reset on level up, accounting on whether it was chosen as the
-  stat to increment.
+- Revert health recovery after level up.
 
 ### Changed
 
@@ -29,7 +28,7 @@ The format is based on [Keep a Changelog], and this project adheres to
 
 ### Added
 
-- Set health value after sleeping according to _HealRate_.
+- Revert health recovery after sleep.
 - Changelog.
 
 
