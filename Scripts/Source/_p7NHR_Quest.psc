@@ -8,6 +8,7 @@ Float sleepStart
 
 Event OnInit()
 	RegisterForSleep()
+	; requires SKSE >= 1.06.00
 	RegisterForMenu("LevelUp Menu")
 EndEvent
 

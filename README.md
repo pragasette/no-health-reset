@@ -16,6 +16,8 @@ the corresponding SKSE plugin was not converted, or a later release, in which
 
 - [The Elder Scrolls V: Skyrim][Skyrim].
 
+- [SKSE].
+
 - A mod or tweak to decrease health regeneration, since vanilla rate wouldn't
   allow to appreciate the effects of this mod.
 
@@ -49,6 +51,7 @@ the corresponding SKSE plugin was not converted, or a later release, in which
 
 
 [Skyrim]: https://elderscrolls.bethesda.net/skyrim
+[SKSE]: https://skse.silverlock.org/
 [No Health Regen]: https://www.nexusmods.com/skyrim/mods/9972
 [Realistic Health Regeneration]: https://www.nexusmods.com/skyrim/mods/29425
 [Requiem]: https://www.nexusmods.com/skyrim/mods/19281
