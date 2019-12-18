@@ -15,6 +15,7 @@ the corresponding SKSE plugin was not converted, or a later release, in which
 ## Requirements
 
 - [The Elder Scrolls V: Skyrim][Skyrim].
+
 - A mod or tweak to decrease health regeneration, since vanilla rate wouldn't
   allow to appreciate the effects of this mod.
 
@@ -51,8 +52,7 @@ the corresponding SKSE plugin was not converted, or a later release, in which
 [No Health Regen]: https://www.nexusmods.com/skyrim/mods/9972
 [Realistic Health Regeneration]: https://www.nexusmods.com/skyrim/mods/29425
 [Requiem]: https://www.nexusmods.com/skyrim/mods/19281
-[#1]:
-    https://www.reddit.com/r/skyrimrequiem/comments/axou15/requiem_news_requiem_300_consign_to_oblivion_is/ehxmwai
+[#1]: https://www.reddit.com/r/skyrimrequiem/comments/axou15/requiem_news_requiem_300_consign_to_oblivion_is/ehxmwai
 [SkyTweak]: https://www.nexusmods.com/skyrim/mods/33395
 [Targeted Commands]: https://en.uesp.net/wiki/Skyrim:Console#Targeted_Commands
 [Race]: https://www.creationkit.com/index.php?title=Race
