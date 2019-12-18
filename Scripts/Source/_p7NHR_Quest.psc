@@ -8,6 +8,7 @@ Float sleepStart
 
 Event OnInit()
 	RegisterForSleep()
+
 	; requires SKSE >= 1.06.00
 	RegisterForMenu("LevelUp Menu")
 EndEvent
@@ -18,21 +19,26 @@ Event OnSleepStart(Float afSleepStartTime, Float afDesiredSleepEndTime)
 	Log("PlayerRef.GetAV(\"Health\")=" + PlayerRef.GetAV("Health"))
 	Log("PlayerRef.GetAV(\"HealRate\")=" + PlayerRef.GetAV("HealRate"))
 	Log("PlayerRef.GetAV(\"HealRateMult\")=" + PlayerRef.GetAV("HealRateMult"))
+
 	sleepStart = afSleepStartTime
 	controlHealth = PlayerRef.GetAV("Health")
 EndEvent
 
 Event OnSleepStop(Bool abInterrupted)
 	Log("OnSleepStop(" + abInterrupted + ")")
+
 	Int hours = ((Utility.GetCurrentGameTime() - sleepStart) * 24) as Int
+
 	Log("hours = " + hours)
 	Log("PlayerRef.GetAV(\"Health\") == " + PlayerRef.GetAV("Health"))
 	Log("PlayerRef.GetAV(\"HealRate\") == " + PlayerRef.GetAV("HealRate"))
 	Log("PlayerRef.GetAV(\"HealRateMult\") == " + PlayerRef.GetAV("HealRateMult"))
+
 	; NOTE: it is necessary to divide the final calculation by 10
 	Float newHealth = controlHealth + 60 * 60 * hours * \
 		PlayerRef.GetAV("HealRate") * PlayerRef.GetAV("HealRateMult") / 100 / 10
 	Float damage = PlayerRef.GetAV("Health") - newHealth
+
 	If damage > 0
 		Log("PlayerRef.DamageAV(\"Health\", " + damage + ")")
 		PlayerRef.DamageAV("Health", damage)
@@ -52,6 +58,7 @@ Event OnMenuClose(String MenuName)
 		Float baseHealthIncrement = \
 			PlayerRef.GetBaseAV("Health") - controlBaseHealth
 		Float damage = PlayerRef.GetAV("Health") - controlHealth
+
 		If baseHealthIncrement > 0
 			; health was chosen as stat to increment, let's consider it so that
 			; such increment is not undone
@@ -61,6 +68,7 @@ Event OnMenuClose(String MenuName)
 			; values, we can exclude the case another stat was chosen
 			damage -= baseHealthIncrement
 		EndIf
+
 		If damage > 0
 			PlayerRef.DamageAV("Health", damage)
 		EndIf
