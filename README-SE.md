@@ -4,7 +4,7 @@ _No Health Reset_ is a mod for [The Elder Scrolls V: Skyrim][Skyrim] to revert
 full health recovery, which occurs when the player sleeps and levels up.
 
 It is intended to work with any mod which reduces or zeroes health
-regeneration, such as [No Health Regen] or [Realistic Health Regeneration].
+regeneration, such as [No More Passive Health Regeneration].
 
 It can also be used to emulate a similar feature present in [Requiem] [until
 version 2.0.2][#1], for instance if using a port to Special Edition, for which
