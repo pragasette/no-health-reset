@@ -14,35 +14,29 @@ Event OnInit()
 EndEvent
 
 Event OnSleepStart(Float afSleepStartTime, Float afDesiredSleepEndTime)
-	; NOTE: notifications here are never shown
-	Log("OnSleepStart()")
-	Log("PlayerRef.GetAV(\"Health\")=" + PlayerRef.GetAV("Health"))
-	Log("PlayerRef.GetAV(\"HealRate\")=" + PlayerRef.GetAV("HealRate"))
-	Log("PlayerRef.GetAV(\"HealRateMult\")=" + PlayerRef.GetAV("HealRateMult"))
-
 	sleepStart = afSleepStartTime
 	controlHealth = PlayerRef.GetAV("Health")
+
+	Log(\
+		"In _p7NHR_Quest.OnSleepStart:" \
+		+ "\n    controlHealth == " + controlHealth)
 EndEvent
 
 Event OnSleepStop(Bool abInterrupted)
-	Log("OnSleepStop(" + abInterrupted + ")")
-
 	Int hours = ((Utility.GetCurrentGameTime() - sleepStart) * 24) as Int
-
-	Log("hours = " + hours)
-	Log("PlayerRef.GetAV(\"Health\") == " + PlayerRef.GetAV("Health"))
-	Log("PlayerRef.GetAV(\"HealRate\") == " + PlayerRef.GetAV("HealRate"))
-	Log("PlayerRef.GetAV(\"HealRateMult\") == " + PlayerRef.GetAV("HealRateMult"))
 
 	; NOTE: it is necessary to divide the final calculation by 10
 	Float newHealth = controlHealth + 60 * 60 * hours * \
 		PlayerRef.GetAV("HealRate") * PlayerRef.GetAV("HealRateMult") / 100 / 10
 	Float damage = PlayerRef.GetAV("Health") - newHealth
 
+	Log(\
+		"In _p7NHR_Quest.OnSleepStop:" \
+		+ "\n    hours == " + hours \
+		+ "\n    damage == " + damage)
+
 	If damage > 0
-		Log("PlayerRef.DamageAV(\"Health\", " + damage + ")")
 		PlayerRef.DamageAV("Health", damage)
-		Log("PlayerRef.GetAV(\"Health\") == " + PlayerRef.GetAV("Health"))
 	EndIf
 EndEvent
 
@@ -50,6 +44,11 @@ Event OnMenuOpen(String MenuName)
 	If MenuName == "LevelUp Menu"
 		controlHealth = PlayerRef.GetAV("Health")
 		controlBaseHealth = PlayerRef.GetBaseAV("Health")
+
+		Log(\
+			"In _p7NHR_Quest.OnMenuOpen:" \
+			+ "\n    controlHealth == " + controlHealth \
+			+ "\n    controlBaseHealth == " + controlBaseHealth)
 	EndIf
 EndEvent
 
@@ -69,6 +68,11 @@ Event OnMenuClose(String MenuName)
 			damage -= baseHealthIncrement
 		EndIf
 
+		Log(\
+			"In _p7NHR_Quest.OnMenuClose:" \
+			+ "\n    baseHealthIncrement == " + baseHealthIncrement \
+			+ "\n    damage == " + damage)
+
 		If damage > 0
 			PlayerRef.DamageAV("Health", damage)
 		EndIf
@@ -76,5 +80,5 @@ Event OnMenuClose(String MenuName)
 EndEvent
 
 Function Log(String text)
-	Debug.Trace("[No Health Reset] _p7NHR_Quest: " + text)
+	Debug.Trace("[No Health Reset] " + text)
 EndFunction
