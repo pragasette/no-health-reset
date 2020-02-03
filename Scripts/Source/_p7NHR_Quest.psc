@@ -7,10 +7,7 @@ Float controlBaseHealth
 Float sleepStart
 
 Event OnInit()
-	RegisterForSleep()
-
-	; requires SKSE >= 1.06.00
-	RegisterForMenu("LevelUp Menu")
+	RefreshRegistrations()
 EndEvent
 
 Event OnSleepStart(Float afSleepStartTime, Float afDesiredSleepEndTime)
@@ -78,6 +75,15 @@ Event OnMenuClose(String MenuName)
 		EndIf
 	EndIf
 EndEvent
+
+Function RefreshRegistrations()
+	UnregisterForSleep()
+	UnregisterForAllMenus()
+
+	RegisterForSleep()
+	; requires SKSE >= 1.6.0
+	RegisterForMenu("LevelUp Menu")
+EndFunction
 
 Function Log(String text)
 	Debug.Trace("[No Health Reset] " + text)

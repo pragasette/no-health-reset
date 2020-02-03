@@ -3,6 +3,13 @@
 The format is based on [Keep a Changelog], and this project adheres to
 [Semantic Versioning].
 
+## Unreleased
+
+### Fixed
+
+- Health was not reverted after level up in loaded games, this apparently
+affected only Skyrim Special Edition.
+
 ## [1.0.0] - 2019-12-18
 
 ### Added
