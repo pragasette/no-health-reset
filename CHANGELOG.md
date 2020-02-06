@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog], and this project adheres to
 
 - Health was not reverted after level up in loaded games, this apparently
 affected only Skyrim Special Edition.
+- Varying base health and custom `TimeScale` were not calculated.
 
 ## [1.0.0] - 2019-12-18
 

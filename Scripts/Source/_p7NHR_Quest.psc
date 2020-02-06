@@ -1,6 +1,8 @@
 Scriptname _p7NHR_Quest extends Quest
 
 Actor Property PlayerRef Auto
+Float Property SleepHealingMult = 2.0 Auto
+GlobalVariable Property TimeScale Auto
 
 Float controlHealth
 Float controlBaseHealth
@@ -22,9 +24,11 @@ EndEvent
 Event OnSleepStop(Bool abInterrupted)
 	Int hours = ((Utility.GetCurrentGameTime() - sleepStart) * 24) as Int
 
-	; NOTE: it is necessary to divide the final calculation by 10
-	Float newHealth = controlHealth + 60 * 60 * hours * \
-		PlayerRef.GetAV("HealRate") * PlayerRef.GetAV("HealRateMult") / 100 / 10
+	Float newHealth = SleepHealingMult * PlayerRef.GetBaseAV("Health") \
+		* PlayerRef.GetAV("HealRate") / 100 \
+		* PlayerRef.GetAV("HealRateMult") / 100 \
+		* 60 * 60 * hours / TimeScale.GetValue() \
+		+ controlHealth
 	Float damage = PlayerRef.GetAV("Health") - newHealth
 
 	Log(\
