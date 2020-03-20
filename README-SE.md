@@ -33,6 +33,15 @@ the corresponding SKSE plugin was not converted, or a later release, in which
 
 - Use your mod manager of choice, [Mod Organizer 2] is recommended.
 
+## Updating
+
+It is safe to update to a newer release in the middle of a game, as long as
+the first number (_major_ version) doesn't change; the following is supported:
+
+- **1**.0.0 → **1**.0.1
+
+See https://github.com/pragasette/game-mods-semver for more details.
+
 ## Features
 
 - After sleep, health is reverted to its previous state; any regeneration rate

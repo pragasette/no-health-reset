@@ -23,6 +23,15 @@ Examples include, but are not limited to:
 [list]
 [*] Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.[/list]
 
+[b]Updating[/b]
+
+It is safe to update to a newer release in the middle of a game, as long as the first number ([i]major[/i] version) doesn't change; the following is supported:
+
+[list]
+[*] [b]1[/b].0.0 → [b]1[/b].0.1[/list]
+See [url=https://www.nexusmods.com/skyrim/mods/101821]https://www.nexusmods.com/skyrim/mods/101821[/url] for more details.
+
+
 [b]Features[/b]
 
 [list]
