@@ -1,1 +1,1 @@
-Revert full health recovery which occurs after sleep and level up.
+Revert the full health recovery which occurs after sleep and level-up.

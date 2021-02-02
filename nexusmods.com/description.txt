@@ -1,36 +1,63 @@
-[center][url=https://www.nexusmods.com/skyrimspecialedition/mods/31076]Skyrim Special Edition[/url]﻿ | [url=https://github.com/pragasette/no-health-reset]GitHub﻿[/url]﻿[/center]
+[center][font=bebas_neuebook][size=5]Classic Edition • [url=https://www.nexusmods.com/skyrimspecialedition/mods/31076]Special Edition[/url] • [url=https://github.com/pragasette/no-health-reset]GitHub[/url][/size][/font][/center]
 
-This is intended to work with any mod which reduces or zeroes health regeneration, such as [url=https://www.nexusmods.com/skyrim/mods/9972]No Health Regen[/url] or [url=https://www.nexusmods.com/skyrim/mods/29425]Realistic Health Regeneration[/url].
+This is intended to work with any mod which reduces health regeneration, such as [url=https://www.nexusmods.com/skyrim/mods/96817]NPC Stat Rescaler[/url].
 
-It can also be used to emulate a similar feature present in [url=https://www.nexusmods.com/skyrim/mods/19281]Requiem[/url] [url=https://www.reddit.com/r/skyrimrequiem/comments/axou15/requiem_news_requiem_300_consign_to_oblivion_is/ehxmwai]until version 2.0.2[/url], for instance if using a port to Special Edition, for which the corresponding SKSE plugin was not converted, or a later release, in which [url=https://www.reddit.com/r/skyrimrequiem/comments/axou15/requiem_news_requiem_300_consign_to_oblivion_is/ehxmwai]the feature was removed[/url].
 
-[b]Requirements[/b]
-
+[heading]Features[/heading]
 [list]
-[*] [url=https://skse.silverlock.org/]SKSE[/url].
-[*] A mod or tweak to decrease health regeneration, since vanilla rate wouldn't allow to appreciate the effects of this mod.
-Examples include, but are not limited to:
+[*] After sleep, revert health to its previous value, counting [url=https://en.uesp.net/wiki/Skyrim:Health#Passive_Regeneration]regeneration[/url] for the hours passed.
+[*] After level-up, revert health to its previous value, counting if it was chosen as the attribute to increase.[/list]
+Also see the [i]Implementation Details[/i] section below.
+&#8203;
+
+[heading]Requirements[/heading]
 [list]
-[*] [url=https://www.nexusmods.com/skyrim/mods/9972]No Health Regen[/url];
-[*] [url=https://www.nexusmods.com/skyrim/mods/29425]Realistic Health Regeneration[/url];
-[*] [url=https://www.nexusmods.com/skyrim/mods/19281]Requiem[/url];
-[*] [url=https://www.nexusmods.com/skyrim/mods/33395]SkyTweak[/url];
-[*] using [url=https://en.uesp.net/wiki/Skyrim:Console#Targeted_Commands]modAV in console[/url] to reduce [i]HealRate[/i];
-[*] directly modifying [i]Health Regen[/i] in the [url=https://www.creationkit.com/index.php?title=Race]Race[/url] record.[/list][/list]
+[*] [url=https://skse.silverlock.org/]Skyrim Script Extender (SKSE)[/url]
+[*] A mod or tweak to decrease health regeneration, for example:
+• [url=https://www.nexusmods.com/skyrim/mods/96817]NPC Stat Rescaler[/url]
+• [url=https://www.nexusmods.com/skyrim/mods/19281]Requiem[/url]
+• [url=https://www.nexusmods.com/skyrim/mods/33395]SkyTweak[/url]
+• the [url=https://en.uesp.net/wiki/Skyrim:Console#Targeted_Commands]console command[/url] [code]player.modAV HealRateMult -100[/code]
+• changing [i]Health Regen[/i] in the [url=https://www.creationkit.com/index.php?title=Race]Race[/url] record[/list]
 
-[b]Installation[/b]
+[heading]Installation[/heading]
+Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.
+&#8203;
 
+[heading]Configuration[/heading]
+The following property of the [code]_p7NHR_Quest[/code] quest can be edited using [url=https://www.nexusmods.com/skyrim/mods/25859]TES5Edit[/url] or the console:
+&#8203;
 [list]
-[*] Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.[/list]
+[*][code][b]Float[/b] SleepHealingMult[/code] (default: [b]2.0[/b]): multiplies the health amount recovered by sleeping.[/list]
+Also see the [i]Implementation Details[/i] section below.
+&#8203;
 
-[b]Features[/b]
+[heading]Implementation Details[/heading]
+Health after sleep is calculated as:
+[quote][code]newHealth = oldHealth + baseHealth * SleepHealingMult * HealRate / 100 * HealRateMult / 100 * 60 * 60 * hours / TimeScale[/code]
+[/quote] where:
+• [code]newHealth[/code] is the value after sleeping;
+• [code]oldHealth[/code] is the value before sleeping;
+• [code]baseHealth[/code] is the value without damage;
+• [code]SleepHealingMult[/code] (default: [b]2.0[/b]) is a [code]float[/code] property of the [code]_p7NHR_Quest[/code] quest, chosen so that sleeping and waiting restore the same amount;
+• [code]HealRate[/code] (default: [b]0.70[/b]) is an actor value affecting [url=https://en.uesp.net/wiki/Skyrim:Health#Passive_Regeneration]regeneration[/url];
+• [code]HealRateMult[/code] (default: [b]100[/b]) is another actor value affecting regeneration;
+• [code]hours[/code] is the time spent sleeping;
+• [code]TimeScale[/code] (default: [b]20[/b]) is a global variable determining [url=http://en.uesp.net/wiki/Skyrim:Console#set_timescale]how [i]game time[/i] passes compared to [i]real time[/i][/url].
+&#8203;
+Note that [code]TimeScale[/code] affects the amount of health restored: since [code]HealRate[/code] and [code]HealRateMult[/code] determine the percentage of [code]baseHealth[/code] recovered in [i]real time[/i] seconds, a lower value of [code]TimeScale[/code] makes the same amount of health recover over a shorter lapse of [i]game time[/i]. The same can be observed when waiting in vanilla game, as long as the regeneration rate is low enough.
+&#8203;
 
+[heading]Known Issues[/heading]
 [list]
-[*] After sleep, health is reverted to its previous state; any regeneration rate [i]HealRate[/i] is accounted for the hours spent sleeping.
-[*] After level up, health is reverted to its previous state; additionally, if it was chosen as the attribute to increment, such a difference is added back.[/list]
+[*] Sleeping can cause death when the regeneration rate is below zero.
+&#8203;
+This can occur with effects which further decrease health regeneration, such as [url=https://www.nexusmods.com/skyrim/mods/11163]Frostfall[/url] exposure or [url=https://www.nexusmods.com/skyrim/mods/51473]iNeed[/url] hunger, and is not consistent with how the game handles negative rates, but was left as a motivation to treat those conditions before resting.[/list]
 
-[b]Known Issues[/b]
-
+[heading]Alternatives[/heading]
 [list]
-[*] Health can be reduced to lower than the initial value, possibly causing death, when the resulting regeneration rate is below zero: for example this is the case when combining the effect of a mod above with the penalty for high exposure given by [url=https://www.nexusmods.com/skyrim/mods/11163]Frostfall[/url].
-Note that this is not consistent with how the game handles a negative value of regeneration, since it wouldn't cause additional health damage; nonetheless I left this side effect as an incentive for players to restore their condition before going to sleep.[/list]
+[*] [url=https://www.nexusmods.com/skyrim/mods/55507]Realistic Regeneration[/url] applies custom regeneration rates to sleep.[/list]
+
+[heading]Errata[/heading]
+[list]
+[*] This page incorrectly reported a similar feature was included in [url=https://www.nexusmods.com/skyrim/mods/19281]Requiem[/url] until version [b]2.0.2[/b]: instead [url=https://requiem.atlassian.net/wiki/spaces/RS/pages/794656953/Requiem+3.4.0+-+The+Shadow+Theory]the changelog reports[/url] it was removed since version [b]3.4.0[/b].[/list]
