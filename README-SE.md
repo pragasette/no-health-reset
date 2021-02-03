@@ -36,6 +36,16 @@ Also see the _Implementation Details_ section below.
 Use your mod manager of choice, [Mod Organizer 2] is recommended.
 
 
+## Updating
+
+It is safe to update to a newer release in the middle of a game, as long as the
+first number (_major_ version) doesn't change:
+
+- **1.0.0** → **1.0.1** ✔️
+
+Also see [Semantic Versioning for End-User Game Mods].
+
+
 ## Configuration
 
 The following property of the `_p7NHR_Quest` quest can be edited using
@@ -112,6 +122,7 @@ waiting in vanilla game, as long as the regeneration rate is low enough.
 [#2]: https://en.uesp.net/wiki/Skyrim:Console#Targeted_Commands
 [Race]: https://www.creationkit.com/index.php?title=Race
 [Mod Organizer 2]: https://www.nexusmods.com/skyrimspecialedition/mods/6194
+[Semantic Versioning for End-User Game Mods]: https://github.com/pragasette/game-mods-semver
 [SSEEdit]: https://github.com/TES5Edit/TES5Edit
 [Frostfall]: https://www.nexusmods.com/skyrimspecialedition/mods/671
 [iNeed]: https://www.nexusmods.com/skyrimspecialedition/mods/645

@@ -9,6 +9,10 @@ The format is based on [Keep a Changelog] and this project adheres to
 
 ### Fixed
 - Formula for varying base health and custom `TimeScale`.
+
+## [1.0.1] - 2020-03-20
+
+### Fixed
 - Special Edition: health not reverting after level-up in loaded games.
 
 ## [1.0.0] - 2019-12-18
@@ -38,7 +42,8 @@ The format is based on [Keep a Changelog] and this project adheres to
 
 [Keep a Changelog]: https://keepachangelog.com/en/1.0.0/
 [Semantic Versioning]: https://semver.org/spec/v2.0.0.html
-[Unreleased]: https://github.com/pragasette/no-health-reset/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/pragasette/no-health-reset/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/pragasette/no-health-reset/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/pragasette/no-health-reset/compare/v0.2.0...v1.0.0
 [0.2.0]: https://github.com/pragasette/no-health-reset/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/pragasette/no-health-reset/releases/tag/v0.1.0

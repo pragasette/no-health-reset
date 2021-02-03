@@ -25,6 +25,14 @@ Also see the [i]Implementation Details[/i] section below.
 Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedition/mods/6194]Mod Organizer 2[/url] is recommended.
 &#8203;
 
+[heading]Updating[/heading]
+It is safe to update to a newer release in the middle of a game, as long as the first number ([i]major[/i] version) doesn't change:
+&#8203;
+[list]
+[*] [b]1.0.0[/b] → [b]1.0.1[/b] ✔️[/list]
+Also see [url=https://www.nexusmods.com/skyrim/mods/101821]Semantic Versioning for End-User Game Mods[/url].
+&#8203;
+
 [heading]Configuration[/heading]
 The following property of the [code]_p7NHR_Quest[/code] quest can be edited using [url=https://www.nexusmods.com/skyrimspecialedition/mods/164]SSEEdit[/url] or the console:
 &#8203;
