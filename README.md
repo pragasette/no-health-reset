@@ -39,7 +39,8 @@ Use your mod manager of choice, [Mod Organizer 2] is recommended.
 It is safe to update to a newer release in the middle of a game, as long as the
 first number (_major_ version) doesn't change:
 
-- **1.0.0** → **1.0.1** ✔️
+- **1.0.0** → **1.0.2** ✔️
+- **1.0.1** → **1.0.2** ✔️
 
 Also see [Semantic Versioning for End-User Game Mods].
 

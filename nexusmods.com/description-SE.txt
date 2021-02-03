@@ -29,7 +29,8 @@ Use your mod manager of choice, [url=https://www.nexusmods.com/skyrimspecialedit
 It is safe to update to a newer release in the middle of a game, as long as the first number ([i]major[/i] version) doesn't change:
 &#8203;
 [list]
-[*] [b]1.0.0[/b] → [b]1.0.1[/b] ✔️[/list]
+[*] [b]1.0.0[/b] → [b]1.0.2[/b] ✔️
+[*] [b]1.0.1[/b] → [b]1.0.2[/b] ✔️[/list]
 Also see [url=https://www.nexusmods.com/skyrim/mods/101821]Semantic Versioning for End-User Game Mods[/url].
 &#8203;
 
